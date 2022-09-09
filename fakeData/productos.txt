@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "nombre": "Iphone 13",
+    "descripcion": "256 gb, 8 GB RAM ",
+    "codigo": "fas245",
+    "precio": 1600,
+    "stock": 300,
+    "timestamp": "2022-09-09T22:47:52.860Z"
+  },
+  {
+    "id": 2,
+    "nombre": "Iphone 13",
+    "descripcion": "256 gb, 8 GB RAM ",
+    "codigo": "fas245",
+    "precio": 1600,
+    "stock": 300,
+    "timestamp": "2022-09-09T22:47:54.017Z"
+  }
+]

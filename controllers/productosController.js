@@ -1,6 +1,7 @@
 const { promises: fs } = require("fs");
 const Producto  = require("../models/Productos");
-const productos = new Producto("./productos.txt");
+const productos = new Producto('./fakeData/productos.txt');
+
 const admin = true;
 let id = 1;
 const misproductos = [];
@@ -25,7 +26,7 @@ exports.addProduct = async (req, res, next) => {
           
           misproductos.push(newProduct);
           await fs.writeFile(
-            "./productos.txt",
+            './fakeData/productos.txt',
             JSON.stringify(misproductos, null, 2)
           );
           res.status(201).send(newProduct);
@@ -53,7 +54,7 @@ exports.getById = async (req, res, next) => {
 }
 exports.getAll=async (req,res,next) => {
     try {
-        const productos = await fs.readFile("./productos.txt", "utf8");
+        const productos = await fs.readFile("./fakeData/productos.txt", "utf8");
         res.send(JSON.parse(productos))
       } catch (e) {
         return [];

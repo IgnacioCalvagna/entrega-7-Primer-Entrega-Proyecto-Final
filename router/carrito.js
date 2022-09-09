@@ -2,9 +2,16 @@ const { Router } = require("express");
 const { promises: fs } = require("fs");
 const router = Router();
 const Carrito = require("../models/carrito");
-// const carrito = new Carrito("./carritos.txt");
+const productos = require("../fakeData/productos.txt");
 let id = 1;
 const misCarritos = [];
+
+
+  router.get("/verProductos",async (req, res, next)=>{
+      const misProductos  = await fs.readFile("./fakeData/productos.txt", "utf8");
+      res.send(JSON.parse(misProductos));
+  })
+
 
 router.post("/", async (req, res, next) => {
   const newCarrito = new Carrito("./carritos.txt");
@@ -25,19 +32,8 @@ router.get("/getAll", async (req, res, next) => {
     return [];
   }
 });
-router.get("/getAll", async (req, res, next) => {
-    try {
-      const carritos = await fs.readFile("./carritos.txt", "utf8");
-      res.send(JSON.parse(carritos));
-    } catch (e) {
-      return [];
-    }
-  });
+
   
-
-
-
-
 router.delete("/:id", async (req, res, next) => {
     const { id } = req.params;
     const carrito = await Carrito.deleteById(id);
@@ -47,16 +43,6 @@ router.delete("/:id", async (req, res, next) => {
       res.status(404).json({ error : 'carrito no encontrado' });
     }
   });
-router.delete("/:id", (req, res, next) => {
-  const { id } = req.params;
-  const miCarri = carrito.find((c) => c.id === id);
-  if (miCarri != undefined) {
-    miCarri = [];
-    res.send(miCarri);
-  } else {
-    res.send("no se encontro el carrito. ");
-  }
-});
 
 router.get("/:id/productos", (req, res, next) => {
   const { id } = req.params;
