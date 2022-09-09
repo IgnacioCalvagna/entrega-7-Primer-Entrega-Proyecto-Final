@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "productos": [
+      {
+        "id": 1,
+        "producto": "Iphone13"
+      }
+    ],
+    "timestamp": "2022-09-07T22:19:54.398Z"
+  },
+  {
+    "id": 2,
+    "productos": [
+      {
+        "id": 1,
+        "producto": "Iphone13"
+      }
+    ],
+    "timestamp": "2022-09-07T22:20:24.007Z"
+  }
+]
