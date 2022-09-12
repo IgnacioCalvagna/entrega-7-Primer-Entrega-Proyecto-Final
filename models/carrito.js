@@ -2,16 +2,16 @@ const { promises: fs } = require("fs");
 const Producto = require("../models/productos")
 
 let newId = 1;
-let carritos 
+
 class Carrito {
   constructor(ruta) {
     this.id=newId ++
-    this.productos= [{id:1,producto:"Iphone13"}]
+    this.productos= []
     this.timestamp = new Date()
   }
 
   async createCart(newCart) {
-    carritos  = await this.getAll();
+   const carritos  = await this.getAll();
     carritos.push({ id, ...newCart  });
     newId ++;
 
@@ -32,6 +32,14 @@ class Carrito {
       return [];
     }
   }
+
+  async addProduct(cartId, productId) {
+    carritos  = await this.getAll();
+    console.log(carritos)
+    
+  }
+
+  
 
   async getById(id) {
     let salida 

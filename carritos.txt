@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "productos": [
+      {
+        "id": 1,
+        "producto": "Iphone13"
+      }
+    ],
+    "timestamp": "2022-09-09T23:48:06.137Z"
+  }
+]

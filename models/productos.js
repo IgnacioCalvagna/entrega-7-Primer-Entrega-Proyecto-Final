@@ -19,6 +19,15 @@ let newId = 1;
     }
   }
 
+  async getAll() {
+    try {
+      const productos = await fs.readFile(this.ruta, "utf8");
+      return JSON.parse(productos);
+    } catch (e) {
+      return [];
+    }
+  }
+  
   async getById(id) {
     const productos = await this.getAll();
 
@@ -31,14 +40,6 @@ let newId = 1;
     }
   }
 
-  async getAll() {
-    try {
-      const productos = await fs.readFile(this.ruta, "utf8");
-      return JSON.parse(productos);
-    } catch (e) {
-      return [];
-    }
-  }
 
 
   

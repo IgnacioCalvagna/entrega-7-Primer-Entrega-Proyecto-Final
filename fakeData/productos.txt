@@ -1,20 +1,37 @@
 [
   {
     "id": 1,
-    "nombre": "Iphone 13",
+    "nombre": "Iphone XR",
     "descripcion": "256 gb, 8 GB RAM ",
-    "codigo": "fas245",
-    "precio": 1600,
+    "codigo": "fas242",
+    "precio": 1000,
     "stock": 300,
-    "timestamp": "2022-09-09T22:47:52.860Z"
+    "timestamp": "2022-09-12T14:18:44.736Z"
   },
   {
     "id": 2,
-    "nombre": "Iphone 13",
+    "nombre": "Iphone XR",
     "descripcion": "256 gb, 8 GB RAM ",
-    "codigo": "fas245",
-    "precio": 1600,
+    "codigo": "fas242",
+    "precio": 1000,
     "stock": 300,
-    "timestamp": "2022-09-09T22:47:54.017Z"
+    "timestamp": "2022-09-12T14:18:46.885Z"
+  },
+  {
+    "id": 3,
+    "nombre": "Iphone XR",
+    "descripcion": "256 gb, 8 GB RAM ",
+    "codigo": "fas242",
+    "precio": 1000,
+    "stock": 300,
+    "timestamp": "2022-09-12T14:18:47.257Z"
+  },
+  {
+    "id": "4",
+    "nombre": "Samsung de mierda",
+    "descripcion": "2 gb, 8 GB RAM ",
+    "codigo": "fas242",
+    "precio": 100,
+    "stock": 300
   }
 ]
