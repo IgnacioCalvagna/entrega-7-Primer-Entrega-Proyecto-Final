@@ -5,7 +5,7 @@ const carritos = new Carrito("./fakeData/carritos.txt")
 const productos = new Producto("./fakeData/productos.txt")
 
 let id = 1;
-const misproductos = [];
+
 
 exports.createCart= async (req, res, next) => {
 
@@ -39,11 +39,13 @@ exports.addProductToCart= async (req, res, next) => {
       if(pEncontrado){
        
         cEncontrado.productos.push(pEncontrado)
+        res.send(cEncontrado)
+      }else{
+        res.send("Producto no encontrado")
       }
-    }
 
-    
-    
-    res.send(cEncontrado)
-  
+    }else{
+      res.status(500).send("No se pudo hacer el request")
+    }
 }
+

@@ -1,6 +1,7 @@
 const { promises: fs } = require("fs");
 const Producto = require("../models/productos")
 
+const productos = new Producto("./fakeData/productos.txt")
 let newId = 1;
 
 class Carrito {
@@ -34,8 +35,25 @@ class Carrito {
   }
 
   async addProduct(cartId, productId) {
-    carritos  = await this.getAll();
-    console.log(carritos)
+    const misCarritos = await this.getAll();
+    const cEncontrado = misCarritos.find(carri => carri.id === parseInt(cartId))
+    let salida
+    if(cEncontrado){
+      const misProductos = await productos.getAll();
+      const pEncontrado = misProductos.find(product => product.id === parseInt(productId))
+      if(pEncontrado){
+       
+        this.productos.push(pEncontrado)
+        
+      }else{
+        salida= "Producto no encontrado"
+      }
+
+    }else{
+      salida= "No se pudo hacer el request"
+    }
+    
+    return salida
     
   }
 
