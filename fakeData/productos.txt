@@ -1,29 +1,29 @@
 [
   {
-    "id": 5,
-    "nombre": "Iphone 14",
-    "descripcion": "256 gb, 8 GB RAM ",
-    "codigo": "fas242",
-    "precio": 1000,
-    "stock": 300,
-    "timestamp": "2022-09-12T20:12:27.978Z"
-  },
-  {
     "id": 1,
-    "nombre": "Iphone 14",
-    "descripcion": "256 gb, 8 GB RAM ",
-    "codigo": "fas242",
-    "precio": 1000,
-    "stock": 300,
-    "timestamp": "2022-09-12T20:34:28.057Z"
+    "nombre": "Iphone 14 pro max",
+    "descripcion": "1 TB, 64 GB RAM ",
+    "codigo": "Ipho14",
+    "precio": 1500,
+    "stock": 30,
+    "timestamp": "2022-09-12T22:54:34.713Z"
   },
   {
     "id": 2,
-    "nombre": "Iphone 14",
-    "descripcion": "256 gb, 8 GB RAM ",
-    "codigo": "fas242",
-    "precio": 1000,
-    "stock": 300,
-    "timestamp": "2022-09-12T20:34:29.020Z"
+    "nombre": "Iphone 14 pro ",
+    "descripcion": "1 TB, 64 GB RAM ",
+    "codigo": "Ipho14pro",
+    "precio": 1200,
+    "stock": 30,
+    "timestamp": "2022-09-12T22:54:56.658Z"
+  },
+  {
+    "id": 3,
+    "nombre": "Iphone XR ",
+    "descripcion": "64 gb, 16 GB RAM ",
+    "codigo": "IphoXr",
+    "precio": 700,
+    "stock": 307,
+    "timestamp": "2022-09-12T22:55:25.040Z"
   }
 ]

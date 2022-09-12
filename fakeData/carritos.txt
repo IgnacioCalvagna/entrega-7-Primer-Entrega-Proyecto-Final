@@ -2,6 +2,16 @@
   {
     "id": 1,
     "productos": [],
-    "timestamp": "2022-09-12T13:49:47.675Z"
+    "timestamp": "2022-09-12T22:51:12.026Z"
+  },
+  {
+    "id": 2,
+    "productos": [],
+    "timestamp": "2022-09-12T22:51:14.272Z"
+  },
+  {
+    "id": 3,
+    "productos": [],
+    "timestamp": "2022-09-12T22:51:15.307Z"
   }
 ]

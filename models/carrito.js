@@ -5,16 +5,14 @@ let newId = 1;
 
 class Carrito {
   constructor(ruta) {
-    this.id=newId ++
-    this.productos= []
-    this.timestamp = new Date()
+   this.ruta=ruta;
   }
 
 
 
   async createCart(newCart) {
    const carritos  = await this.getAll();
-    carritos.push({ id, ...newCart  });
+    carritos.push({  ...newCart  });
     newId ++;
 
     try {
@@ -29,7 +27,6 @@ class Carrito {
   async getAll() {
     try {
       const carritos = await fs.readFile(this.ruta, "utf8");
-      
       return JSON.parse(carritos);
     } catch (e) {
       return [];

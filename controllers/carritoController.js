@@ -1,24 +1,49 @@
 const { promises: fs } = require("fs");
 const Carrito = require("../models/carrito");
-const misCarritos = [];
+const Producto = require("../models/carrito");
+const carritos = new Carrito("./fakeData/carritos.txt")
+const productos = new Producto("./fakeData/productos.txt")
 
-exports.addProduct = async (req, res, next) => {
-  const newCarrito = new Carrito("./fakeData/carritos.txt");
-  await newCarrito.getAll();
-  misCarritos.push(newCarrito);
-  await fs.writeFile(
-    "./fakeData/carritos.txt",
-    JSON.stringify(misCarritos, null, 2)
-  );
-  console.log("mi newCart---->", newCarrito);
-  res.status(200).send(newCarrito);
-};
+let id = 1;
+const misproductos = [];
+
+exports.createCart= async (req, res, next) => {
+
+const newCart = {id,productos:[],timestamp:new Date()}
+ await carritos.createCart(newCart)
+ id++
+ res.send(newCart)
+}
 
 exports.getAll = async (req, res, next) => {
   try {
-    const carritos = await fs.readFile("./fakeData/carritos.txt", "utf8");
-    res.send(JSON.parse(carritos));
+    const misCarritos = await carritos.getAll();
+    res.send(misCarritos);
   } catch (e) {
     return [];
   }
 };
+
+
+exports.addProductToCart= async (req, res, next) => {
+  
+    const id = req.params.id
+    const productId = req.body.productId
+
+    const misCarritos = await carritos.getAll();
+    const cEncontrado = misCarritos.find(carri => carri.id === parseInt(id))
+
+    if(cEncontrado){
+      const misProductos = await productos.getAll();
+      const pEncontrado = misProductos.find(product => product.id === parseInt(productId))
+      if(pEncontrado){
+       
+        cEncontrado.productos.push(pEncontrado)
+      }
+    }
+
+    
+    
+    res.send(cEncontrado)
+  
+}
