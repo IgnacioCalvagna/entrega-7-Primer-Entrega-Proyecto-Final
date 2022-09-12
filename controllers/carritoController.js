@@ -11,7 +11,7 @@ exports.addProduct = async (req, res, next) => {
     JSON.stringify(misCarritos, null, 2)
   );
   console.log("mi newCart---->", newCarrito);
-  res.status(200).send({ newCarrito: newCarrito.id, newCarrito });
+  res.status(200).send(newCarrito);
 };
 
 exports.getAll = async (req, res, next) => {

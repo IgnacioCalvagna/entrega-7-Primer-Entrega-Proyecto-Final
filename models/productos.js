@@ -7,9 +7,9 @@ let newId = 1;
     this.ruta = ruta;
   }
 
-  async save(newObject) {
+  async save(newProduct) {
     const productos = await this.getAll();
-    productos.push({ id: newId, ...newObject });
+    productos.push({ id: newId, ...newProduct });
     newId + 1;
     try {
       await fs.writeFile(this.ruta, JSON.stringify(productos, null, 2));
@@ -28,43 +28,38 @@ let newId = 1;
     }
   }
   
+
+
   async getById(id) {
     const productos = await this.getAll();
-
-    try {
-      const prod = await productos.find((p) => p.id === id);
-
-      console.log(JSON.stringify(prod));
-    } catch (e) {
-      console.log("error", e);
+    const producto = productos.find(producto=>producto.id== id)
+    if(!producto) {
+      return "No se encontro el producto"
     }
+    return producto 
   }
 
-
-
-  
   async deleteById(id) {
     const productos = await this.getAll();
-    const newArr = await productos.filter((p) => p.id !== id);
-    try {
-      console.log("Nuevo arr length", newArr.length);
-      return await fs.writeFile(this.ruta, JSON.stringify(newArr, null, 2));
-      //   return newArr;
+    const newArr = await productos.filter(p => p.id !== parseInt(id));
+    try { 
+       return await fs.writeFile(this.ruta, JSON.stringify(newArr, null, 2));
     } catch (e) {
       console.log("error", e);
     }
   }
 
-  async deleteAll() {
-    let newArr = [];
-    try {
-      await fs.writeFile(this.ruta, JSON.stringify(newArr, null, 2));
-      console.log("Nuevo arr length", newArr.length);
-      return newArr;
-    } catch (e) {
-      console.log("error", e);
-    }
-  }
+  //* a terminar el delete all
+  // async deleteAll() {
+  //   const productos = await this.getAll();
+  //   productos= []
+  //   try {
+  //     await fs.writeFile(this.ruta, JSON.stringify(productos, null, 2));
+  //     return newArr;
+  //   } catch (e) {
+  //     console.log("error", e);
+  //   }
+  // }
 }
 
 

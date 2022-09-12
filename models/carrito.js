@@ -10,6 +10,8 @@ class Carrito {
     this.timestamp = new Date()
   }
 
+
+
   async createCart(newCart) {
    const carritos  = await this.getAll();
     carritos.push({ id, ...newCart  });
@@ -23,6 +25,7 @@ class Carrito {
     }
   }
 
+  
   async getAll() {
     try {
       const carritos = await fs.readFile(this.ruta, "utf8");

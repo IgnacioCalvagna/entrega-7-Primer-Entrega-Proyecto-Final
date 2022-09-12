@@ -25,10 +25,7 @@ exports.addProduct = async (req, res, next) => {
       ///* CARGA CON FS
 
       misproductos.push(newProduct);
-      await fs.writeFile(
-        "./fakeData/productos.txt",
-        JSON.stringify(misproductos, null, 2)
-      );
+      await productos.save(newProduct);
       res.status(201).send(newProduct);
       id++;
     } else {
@@ -38,24 +35,22 @@ exports.addProduct = async (req, res, next) => {
     next(err);
   }
 };
+
+
 exports.getById = async (req, res, next) => {
   const { id } = req.params;
 
-  try {
-    const producto = await misproductos.find((producto) => producto.id == id);
-    if (producto === undefined) {
-      res.send({ error: "producto no encontrado " });
-    } else {
-      res.send(producto);
-    }
-  } catch (err) {
-    next(err);
-  }
+  const producto = await productos.getById(id)
+  producto?
+    res.send(producto):
+    res.status(400).send(producto)
 };
+
+
 exports.getAll = async (req, res, next) => {
   try {
-    const productos = await fs.readFile("./fakeData/productos.txt", "utf8");
-    res.send(JSON.parse(productos));
+    const misProductos = await productos.getAll();
+    res.send(misProductos);
   } catch (e) {
     return [];
   }
@@ -86,13 +81,15 @@ exports.edit = async (req, res, next) => {
     next(err);
   }
 };
+
+
+
 exports.delete = (req, res, next) => {
   const { id } = req.params;
   try {
     if (admin) {
-      let newArr = productos.filter((producto) => producto.id != id);
-      productos = newArr;
-      res.send(productos);
+      const newProductos = productos.deleteById(id)
+      res.send(newProductos);
     } else {
       res.status(401).send("ERROR---> no sos admin");
     }
@@ -100,3 +97,18 @@ exports.delete = (req, res, next) => {
     next(err);
   }
 };
+
+exports.deleteAll=(req, res, next)=>{
+  try {
+    if (admin) {
+      const newProductos = productos.deleteAll()
+      res.send(newProductos);
+      id=1
+    } else {
+      res.status(401).send("ERROR---> no sos admin");
+      
+    }
+  } catch (err) {
+    next(err);
+  }
+}
