@@ -22,7 +22,7 @@ exports.addProduct = async (req, res, next) => {
         stock,
         timestamp,
       };
-      ///* CARGA CON FS
+      //* CARGA CON FS
 
       misproductos.push(newProduct);
       await productos.save(newProduct);
@@ -98,12 +98,12 @@ exports.delete = (req, res, next) => {
   }
 };
 
-exports.deleteAll=(req, res, next)=>{
+exports.deleteAll=async (req, res, next)=>{
   try {
     if (admin) {
-      const newProductos = productos.deleteAll()
+      const newProductos =await productos.deleteAll()
       res.send(newProductos);
-      id=1
+      
     } else {
       res.status(401).send("ERROR---> no sos admin");
       

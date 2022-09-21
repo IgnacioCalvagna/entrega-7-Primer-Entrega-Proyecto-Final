@@ -1,17 +1,23 @@
 [
   {
     "id": 1,
-    "productos": [],
-    "timestamp": "2022-09-12T22:51:12.026Z"
+    "productos": [
+      {
+        "id": 1,
+        "nombre": "Iphone 13",
+        "timestamp": "2022-09-21T18:02:23.621Z"
+      },
+      {
+        "id": 2,
+        "nombre": "Iphone 13",
+        "timestamp": "2022-09-21T18:02:30.987Z"
+      }
+    ],
+    "timestamp": "2022-09-21T22:31:58.553Z"
   },
   {
     "id": 2,
     "productos": [],
-    "timestamp": "2022-09-12T22:51:14.272Z"
-  },
-  {
-    "id": 3,
-    "productos": [],
-    "timestamp": "2022-09-12T22:51:15.307Z"
+    "timestamp": "2022-09-21T22:31:59.931Z"
   }
 ]

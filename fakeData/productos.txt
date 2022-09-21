@@ -1,29 +1,27 @@
 [
   {
     "id": 1,
-    "nombre": "Iphone 14 pro max",
-    "descripcion": "1 TB, 64 GB RAM ",
-    "codigo": "Ipho14",
-    "precio": 1500,
-    "stock": 30,
-    "timestamp": "2022-09-12T22:54:34.713Z"
+    "nombre": "Iphone 13",
+    "timestamp": "2022-09-21T18:02:23.621Z"
   },
   {
     "id": 2,
-    "nombre": "Iphone 14 pro ",
-    "descripcion": "1 TB, 64 GB RAM ",
-    "codigo": "Ipho14pro",
-    "precio": 1200,
-    "stock": 30,
-    "timestamp": "2022-09-12T22:54:56.658Z"
+    "nombre": "Iphone 13",
+    "timestamp": "2022-09-21T18:02:30.987Z"
   },
   {
     "id": 3,
-    "nombre": "Iphone XR ",
-    "descripcion": "64 gb, 16 GB RAM ",
-    "codigo": "IphoXr",
-    "precio": 700,
-    "stock": 307,
-    "timestamp": "2022-09-12T22:55:25.040Z"
+    "nombre": "Iphone 13",
+    "timestamp": "2022-09-21T18:02:32.044Z"
+  },
+  {
+    "id": 4,
+    "nombre": "Iphone 13",
+    "timestamp": "2022-09-21T18:02:32.799Z"
+  },
+  {
+    "id": 5,
+    "nombre": "Iphone 13",
+    "timestamp": "2022-09-21T18:02:33.515Z"
   }
 ]

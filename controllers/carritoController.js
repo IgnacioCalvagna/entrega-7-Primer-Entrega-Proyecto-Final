@@ -9,12 +9,11 @@ let id = 1;
 
 exports.createCart= async (req, res, next) => {
 
-const newCart = {id,productos:[],timestamp:new Date()}
+ const newCart = {id,productos:[],timestamp:new Date()}
  await carritos.createCart(newCart)
- id++
+ id++ 
  res.send(newCart)
 }
-
 exports.getAll = async (req, res, next) => {
   try {
     const misCarritos = await carritos.getAll();
@@ -23,29 +22,41 @@ exports.getAll = async (req, res, next) => {
     return [];
   }
 };
-
-
+exports.getById= async (req, res, next) => {
+  const {id} = req.params
+  try {
+    const miCarro = await carritos.getById(id)
+    console.log(miCarro)
+    res.send(miCarro);
+  }catch (e) {
+    next(e); 
+  }
+}
 exports.addProductToCart= async (req, res, next) => {
-  
     const id = req.params.id
     const productId = req.body.productId
-
-    const misCarritos = await carritos.getAll();
-    const cEncontrado = misCarritos.find(carri => carri.id === parseInt(id))
-
-    if(cEncontrado){
-      const misProductos = await productos.getAll();
-      const pEncontrado = misProductos.find(product => product.id === parseInt(productId))
-      if(pEncontrado){
-       
-        cEncontrado.productos.push(pEncontrado)
-        res.send(cEncontrado)
-      }else{
-        res.send("Producto no encontrado")
-      }
-
-    }else{
-      res.status(500).send("No se pudo hacer el request")
+    try{
+      const tryAdd = await carritos.addProduct(id, productId)
+      res.send(tryAdd);
+    }catch(e){
+      next(e);
     }
 }
+exports.deleteById=async(req, res, next)=>{
+  const {id} = req.params
+  try{
+    const borrarCarrito =await carritos.deleteById(id)
+    console.log(borrarCarrito)
+    res.send(borrarCarrito)
+  }catch(e){
+    next(e);
+  }
+}
+exports.deleteProductInCart=async(req, res, next)=>{
+  const id = req.params.id
+  const pId = req.params.idProd
+  
+  let algo = await carritos.deleteProductInCart(id,pId)
+res.send(algo)
 
+}

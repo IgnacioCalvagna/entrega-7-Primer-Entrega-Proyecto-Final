@@ -50,16 +50,15 @@ let newId = 1;
   }
 
   //* a terminar el delete all
-  // async deleteAll() {
-  //   const productos = await this.getAll();
-  //   productos= []
-  //   try {
-  //     await fs.writeFile(this.ruta, JSON.stringify(productos, null, 2));
-  //     return newArr;
-  //   } catch (e) {
-  //     console.log("error", e);
-  //   }
-  // }
+  async deleteAll() {
+    const productos = [];
+    try {
+      await fs.writeFile(this.ruta, JSON.stringify(productos, null, 2));
+      return productos
+    } catch (e) {
+      console.log("error", e);
+    }
+  }
 }
 
 
